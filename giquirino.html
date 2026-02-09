@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <title>Giovanna Quirino - Gibs+</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #050007;
+            --card: #13000d;
+            --muted: #f7b6c6;
+            --accent: rgb(216, 73, 121);
+            --accent-light: rgb(255, 183, 208);
+            --radius: 20px;
+            --shadow: 0 6px 24px rgba(0, 0, 0, 0.7);
+            --max-width: 900px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: linear-gradient(180deg, #000000 0%, #120010 50%, #1e0b17 100%);
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            padding-top: 100px;
+            display: flex;
+            justify-content: center;
+            letter-spacing: 0.3px;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(90deg, #1E1E1E, #2b0f18);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: rgb(216, 73, 121);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: rgb(216, 73, 121);
+        }
+
+        .logout-btn {
+            background-color: rgb(216, 73, 121);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 8px 18px;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s;
+        }
+
+        .logout-btn:hover {
+            background-color: rgb(255, 123, 170);
+            transform: scale(1.05);
+        }
+
+        .container {
+            max-width: var(--max-width);
+            width: 100%;
+            background: var(--card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            border: 1px solid rgba(255, 183, 208, 0.08);
+            margin-bottom: 50px;
+        }
+
+        .perfil-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background: radial-gradient(circle at left, #1c0015 0%, #10000a 100%);
+        }
+
+        /* 🔹 Avatar redondo e imagem centralizada corretamente */
+        .avatar {
+            display: block;
+            max-width: 150px;
+            /* 🔹 ajusta aqui o tamanho que quiser */
+            height: auto;
+            /* mantém proporção natural */
+            border: none;
+            box-shadow: none;
+            border-radius: 0;
+            margin: 0;
+            /* remove qualquer espaçamento extra */
+        }
+
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            border: none;
+            box-shadow: none;
+            border-radius: 0;
+        }
+
+
+
+        .perfil-header h1 {
+            font-size: 1.9rem;
+            font-weight: 600;
+            color: var(--accent-light);
+            margin-bottom: 10px;
+            text-shadow: 0 0 8px rgba(216, 73, 121, 0.6);
+        }
+
+        .perfil-header p {
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.6;
+            max-width: 600px;
+        }
+
+        section {
+            padding: 28px 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* 🔹 Removido o hover */
+        /* section:hover {
+            background: rgba(255, 255, 255, 0.05);
+        } */
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            color: var(--accent-light);
+            margin-bottom: 14px;
+            text-shadow: 0 0 10px rgba(216, 73, 121, 0.6);
+            font-weight: 600;
+        }
+
+        h3 {
+            margin-top: 18px;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        ol,
+        ul {
+            padding-left: 25px;
+            margin-top: 8px;
+            line-height: 1.7;
+            color: #ffeaf0;
+            font-weight: 300;
+        }
+
+        img {
+            border-radius: 14px;
+            margin-top: 10px;
+            box-shadow: 0 0 20px rgba(216, 73, 121, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(30, 30, 30, 0.5);
+            color: rgb(216, 73, 121);
+        }
+
+        @media (max-width: 600px) {
+            .perfil-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .avatar {
+                width: 100px;
+                height: 100px;
+            }
+
+            .perfil-header p {
+                text-align: justify;
+            }
+
+            nav ul {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">Gibs+</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="portfolio.html">Sobre</a></li>
+                <li>
+                    <button id="logoutBtn" class="logout-btn">Sair</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <script>
+        document.getElementById('logoutBtn').addEventListener('click', function () {
+            localStorage.removeItem('usuarioLogado');
+            window.location.href = 'login.html';
+        });
+    </script>
+
+    <div class="container">
+        <div class="perfil-header">
+            <div class="avatar">
+                <img src="img/perfil.jpg" alt="Perfil" class="avatar">
+            </div>
+            <div>
+                <h1>Giovanna Quirino</h1>
+                <p>
+                    Antes de entrar no Germinare eu achava que programação era coisa de nerd, cheia de códigos distantes
+                    da minha realidade.
+                    Meu plano sempre foi algo mais criativo, até sonhava em ser delegada e prestar vários concursos.
+                    Mas nas aulas percebi que dava pra juntar lógica e criatividade, e isso me conquistou.
+                    Esse ano completei 16 anos e tudo virou de cabeça pra baixo: rotina, objetivos e futuro.
+                    Agora, depois de começar a trabalhar, vejo o quanto esse ano foi cheio de experiências novas —
+                    aprendi muito, tanto na escola quanto nas relações com as pessoas ao meu redor.
+                    Programação continua sendo um desafio que me motiva todos os dias, e hoje enxergo meu futuro com
+                    muito mais clareza e propósito.
+                </p>
+            </div>
+        </div>
+
+        <section>
+            <h2>Sobre mim</h2>
+            <p><small>Informações sobre minha trajetória e metas profissionais.</small></p>
+
+            <h3>Minhas características</h3>
+            <ul>
+                <li>Sou curiosa e adoro aprender coisas novas</li>
+                <li>Gosto de misturar criatividade e lógica</li>
+                <li>Trabalho bem em equipe e sou comunicativa</li>
+                <li>Tenho facilidade com tecnologia</li>
+            </ul>
+
+            <h3>Minhas metas</h3>
+            <ol>
+                <li>Crescer profissionalmente no meu estágio atual no PicPay</li>
+                <li>Aprofundar meus conhecimentos em análise e ciência de dados</li>
+                <li>Desenvolver projetos pessoais que unam criatividade e tecnologia</li>
+                <li>Construir uma carreira sólida, com propósito e inovação</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Curiosidades sobre mim</h2>
+            <ol type="I">
+                <li>Nunca quebrei nenhuma parte do corpo</li>
+                <li>Morei 12 anos na Paraíba</li>
+                <li>Quero ser uma desenvolvedora backend sênior</li>
+                <li>Sou do Ei Truck, um projeto interdisciplinar voltado para gestão de frotas e inovação</li>
+                <li>Só como hambúrguer do McDonald's se for chicken</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Ei Truck 2025</h2>
+            <img src="img/ei-truck.jpg" alt="Ei Truck 2025" width="400">
+        </section>
+
+        <section>
+            <h2>Lugares que já conheci</h2>
+            <ol>
+                <li>João Pessoa</li>
+                <li>Londrina</li>
+                <li>Recife</li>
+                <li>Brasília</li>
+                <li>Buenos Aires</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Lugares que quero conhecer</h2>
+            <ul>
+                <li>Mônaco</li>
+                <li>Dubai</li>
+                <li>Austrália</li>
+                <li>Barcelona</li>
+                <li>Grécia</li>
+            </ul>
+        </section>
+
+        <footer>
+            &copy; 2025 Gibs+. Todos os direitos reservados.
+        </footer>
+    </div>
+</body>
+
+</html>
